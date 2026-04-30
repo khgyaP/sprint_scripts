@@ -1,0 +1,15 @@
+{
+    "timestamp": "2026-04-30 03:21:00",
+    "hostname": "ip-172-31-20-227",
+    "os": "Linux",
+    "os_release": "6.17.0-1010-aws",
+    "architecture": "x86_64",
+    "python_version": "3.12.3",
+    "cpu_cores": 2,
+    "memory": "total        used        free      shared  buff/cache   available\nMem:           911Mi       710Mi        60Mi       2.7Mi       304Mi       201Mi\nSwap:             0B          0B          0B",
+    "disk_usage": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/root       6.8G  3.3G  3.5G  49% /",
+    "ip_address": "172.31.20.227",
+    "mac_address": "Unavailable",
+    "uptime": "up 39 minutes",
+    "logged_in_users": ""
+}
