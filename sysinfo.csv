@@ -1,17 +1,17 @@
 Field,Value
-timestamp,2026-04-30 03:20:49
-hostname,ip-172-31-20-227
+timestamp,2026-05-29 04:12:20
+hostname,linux1
 os,Linux
-os_release,6.17.0-1010-aws
+os_release,6.17.0-1016-gcp
 architecture,x86_64
 python_version,3.12.3
 cpu_cores,2
 memory,"total        used        free      shared  buff/cache   available
-Mem:           911Mi       702Mi        68Mi       2.7Mi       304Mi       209Mi
+Mem:           955Mi       410Mi       109Mi       1.0Mi       593Mi       545Mi
 Swap:             0B          0B          0B"
 disk_usage,"Filesystem      Size  Used Avail Use% Mounted on
-/dev/root       6.8G  3.3G  3.5G  49% /"
-ip_address,172.31.20.227
-mac_address,Unavailable
-uptime,up 39 minutes
-logged_in_users,
+/dev/root       8.7G  3.3G  5.5G  38% /"
+ip_address,10.128.0.2
+mac_address,42:01:0a:80:00:02
+uptime,"up 4 days, 23 hours, 26 minutes"
+logged_in_users,patriciakahongya36 pts/0        2026-05-29 04:04 (35.235.242.216)
