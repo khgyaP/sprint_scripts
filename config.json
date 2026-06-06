@@ -1,0 +1,10 @@
+{
+    "checks": {
+        "disk_usage_percent": 80,
+        "memory_usage_percent": 90,
+        "cpu_load_1min": 2.0,
+        "services": ["ssh", "cron"]
+    },
+    "log_file": "/home/patriciakahongya36/healthmon.log",
+    "alert_log": "/home/patriciakahongya36/alerts.log"
+}
