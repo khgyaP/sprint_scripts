@@ -147,3 +147,17 @@ def main():
 
 if __name__ == "__main__":
     main()
+def main():
+
+    if len(sys.argv) < 2:
+        sys.exit(1)
+
+    config = load_config(sys.argv[1])
+
+    setup_logging(config["log_file"])
+
+    summary(config)
+
+
+if __name__ == "__main__":
+    main()
