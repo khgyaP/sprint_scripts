@@ -1,0 +1,49 @@
+---
+- name: Configure Linux Servers
+  hosts: servers
+  become: true
+
+  vars:
+    new_user: monitoruser
+    timezone_name: America/Los_Angeles
+    packages:
+      - rsyslog
+      - python3-pip
+
+  tasks:
+
+    - name: Install required packages
+      ansible.builtin.apt:
+        name: "{{ packages }}"
+        state: present
+        update_cache: yes
+
+    - name: Create monitoring user
+      ansible.builtin.user:
+        name: "{{ new_user }}"
+        state: present
+        create_home: yes
+
+    - name: Set timezone
+      community.general.timezone:
+        name: "{{ timezone_name }}"
+
+    - name: Ensure rsyslog is running
+      ansible.builtin.service:
+        name: rsyslog
+        state: started
+        enabled: yes
+
+    - name: Disable root SSH login
+      ansible.builtin.lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '^#?PermitRootLogin'
+        line: 'PermitRootLogin no'
+      notify: Restart SSH
+
+  handlers:
+
+    - name: Restart SSH
+      ansible.builtin.service:
+        name: ssh
+        state: restarted
