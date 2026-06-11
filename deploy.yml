@@ -1,0 +1,45 @@
+---
+- name: Deploy Health Monitoring Script
+  hosts: all
+  become: true
+
+  vars:
+    app_dir: /opt/healthmon
+
+  tasks:
+
+    - name: Create application directory
+      file:
+        path: "{{ app_dir }}"
+        state: directory
+        owner: ubuntu
+        group: ubuntu
+        mode: '0755'
+
+    - name: Copy health monitoring script
+      copy:
+        src: healthmon.py
+        dest: "{{ app_dir }}/healthmon.py"
+        owner: ubuntu
+        group: ubuntu
+        mode: '0755'
+
+    - name: Copy configuration file
+      copy:
+        src: config.json
+        dest: "{{ app_dir }}/config.json"
+        owner: ubuntu
+        group: ubuntu
+        mode: '0644'
+
+    - name: Install Python requests package
+      apt:
+        name: python3-requests
+        state: present
+        update_cache: yes
+
+    - name: Schedule health monitoring cron job
+      cron:
+        name: "Health Monitor"
+        minute: "*/5"
+        job: "python3 {{ app_dir }}/healthmon.py"
